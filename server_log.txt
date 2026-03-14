@@ -1,0 +1,108 @@
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:35:06] 
+[18:35:06] Server Plugins
+[18:35:06] --------------
+[18:35:06]  Loaded 0 plugins.
+
+[18:35:06] 
+[18:35:06] Filterscripts
+[18:35:06] ---------------
+[18:35:06]   Loaded 0 filterscripts.
+
+[18:35:07] Script[gamemodes/traitor.amx]: Run time error 20: "Invalid index parameter (bad entry point)"
+[18:35:07] Number of vehicle models: 0
+[18:35:08] [connection] incoming connection: 127.0.0.1:62168 id: 0
+[18:35:08] [connection] incoming connection: 127.0.0.1:62170 id: 1
+[18:35:08] [connection] incoming connection: 127.0.0.1:62169 id: 2
+[18:35:08] [connection] incoming connection: 127.0.0.1:62171 id: 3
+[18:35:08] [connection] incoming connection: 127.0.0.1:62172 id: 4
+[18:35:08] [npc:join] wz_acv1 has joined the server (0:127.0.0.1)
+[18:35:08] [npc:join] wz_acv3 has joined the server (1:127.0.0.1)
+[18:35:08] [npc:join] wz_acv2 has joined the server (2:127.0.0.1)
+[18:35:08] [npc:join] wz_acv4 has joined the server (3:127.0.0.1)
+[18:35:08] [npc:join] wz_acv5 has joined the server (4:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:36:39] 
+[18:36:39] Server Plugins
+[18:36:39] --------------
+[18:36:39]  Loaded 0 plugins.
+
+[18:36:39] 
+[18:36:39] Filterscripts
+[18:36:39] ---------------
+[18:36:39]   Loaded 0 filterscripts.
+
+[18:36:40] Script[gamemodes/traitor.amx]: Run time error 20: "Invalid index parameter (bad entry point)"
+[18:36:40] Number of vehicle models: 0
+[18:36:41] [connection] incoming connection: 127.0.0.1:60551 id: 0
+[18:36:41] [connection] incoming connection: 127.0.0.1:60555 id: 1
+[18:36:41] [connection] incoming connection: 127.0.0.1:60553 id: 2
+[18:36:41] [connection] incoming connection: 127.0.0.1:60552 id: 3
+[18:36:41] [connection] incoming connection: 127.0.0.1:60554 id: 4
+[18:36:41] [npc:join] wz_acv1 has joined the server (0:127.0.0.1)
+[18:36:41] [npc:join] wz_acv5 has joined the server (1:127.0.0.1)
+[18:36:41] [npc:join] wz_acv3 has joined the server (2:127.0.0.1)
+[18:36:41] [npc:join] wz_acv2 has joined the server (3:127.0.0.1)
+[18:36:41] [npc:join] wz_acv4 has joined the server (4:127.0.0.1)
+[18:36:54] --- Server Shutting Down.
+[18:36:54] [npc:part] wz_acv1 has left the server (0:0)
+[18:36:54] [npc:part] wz_acv5 has left the server (1:0)
+[18:36:54] [npc:part] wz_acv3 has left the server (2:0)
+[18:36:54] [npc:part] wz_acv2 has left the server (3:0)
+[18:36:54] [npc:part] wz_acv4 has left the server (4:0)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:39:06] 
+[18:39:06] Server Plugins
+[18:39:06] --------------
+[18:39:06]  Loaded 0 plugins.
+
+[18:39:06] 
+[18:39:06] Filterscripts
+[18:39:06] ---------------
+[18:39:06]   Loaded 0 filterscripts.
+
+[18:39:06] Script[gamemodes/traitor.amx]: Run time error 20: "Invalid index parameter (bad entry point)"
+[18:39:06] Number of vehicle models: 0
+[18:39:07] [connection] incoming connection: 127.0.0.1:63919 id: 0
+[18:39:07] [connection] incoming connection: 127.0.0.1:63918 id: 1
+[18:39:07] [connection] incoming connection: 127.0.0.1:63921 id: 2
+[18:39:07] [connection] incoming connection: 127.0.0.1:63920 id: 3
+[18:39:07] [connection] incoming connection: 127.0.0.1:63922 id: 4
+[18:39:07] [npc:join] wz_acv2 has joined the server (0:127.0.0.1)
+[18:39:07] [npc:join] wz_acv1 has joined the server (1:127.0.0.1)
+[18:39:07] [npc:join] wz_acv4 has joined the server (2:127.0.0.1)
+[18:39:07] [npc:join] wz_acv3 has joined the server (3:127.0.0.1)
+[18:39:07] [npc:join] wz_acv5 has joined the server (4:127.0.0.1)
+[18:39:25] [connection] incoming connection: 127.0.0.1:54832 id: 5
+[18:39:26] [join] WisarTube has joined the server (5:127.0.0.1)
+[18:40:31] [part] WisarTube has left the server (5:1)
+[18:40:35] --- Server Shutting Down.
+[18:40:35] [npc:part] wz_acv2 has left the server (0:0)
+[18:40:35] [npc:part] wz_acv1 has left the server (1:0)
+[18:40:35] [npc:part] wz_acv4 has left the server (2:0)
+[18:40:35] [npc:part] wz_acv3 has left the server (3:0)
+[18:40:35] [npc:part] wz_acv5 has left the server (4:0)
