@@ -1,6 +1,4 @@
 #include <a_samp>
-#include <t_bot>
-
 #define GAMEMODE_NAME "Traitor Mode"
 
 #define SKIN_DEFAULT_ID 217
@@ -14,63 +12,83 @@
 
 #define ROL_TRAITOR 1
 #define ROL_INOCENT 0
+#define MAX_ROL 2
 
 #define MIN_PLAYERS_TO_START 2
-#define TIME_START 30
-#define FIVE_SECONDS 5
+#define TIME_START_SECOND 30
 
 #define SECOND 1000
 #define MAX_LENGTH 64
 
 #define CICLE_INFINITY true
-#define CICLE_ONCE false
 
-new countdown = TIME_START;
+static const rolMessage[MAX_ROL][] =
+{
+    "{00FF00}Find and kill the traitor!{FFFFFF} If you kill an innocent you will be penalized.",
+    "{FF0000}You are the traitor!{FFFFFF} Your mission is to eliminate all players."
+};
+
+new countdown = TIME_START_SECOND;
 new timerCountdownId;
-
-createNameLabel(playerid)
-{
-    new name[30];
-    GetPlayerName(playerid, name, sizeof(name));
-    new Text3D:label = Create3DTextLabel(name, 0xFFFFFFFF, 0.0, 0.0, 0.1, 20.0, 0);
-    Attach3DTextLabelToPlayer(label, playerid, 0.0, 0.0, 0.1);
-}
-
-countActivePlayers()
-{
-    new playerActive = 0;
-    for (new i = 0; i <= GetPlayerPoolSize(); i++)
-    {
-        if (IsPlayerConnected(i))
-        {
-            playerActive++;
-        }
-    }
-    return playerActive;
-}
+new playerRol[MAX_PLAYERS];
+new activePlayers = 0;
 
 bool:conditionToStartGame()
 {
-    if (countActivePlayers() < MIN_PLAYERS_TO_START)
-    {
-        SendClientMessageToAll(0xFF0000FF, "Faltan jugadores para empezar la partida.");
-        return false;
-    }
-    return true;
-}
-
-bool:shouldBroadcast()
-{
-    return countdown == TIME_START || (countdown <= FIVE_SECONDS && countdown > 0);
+    if (activePlayers >= MIN_PLAYERS_TO_START) return true;
+    SendClientMessageToAll(0xFF0000FF, "Not enough players to start the match.");
+    return false;
 }
 
 broadcastCountdown()
 {
-    if (!shouldBroadcast()) return 0;
+    if (countdown != TIME_START_SECOND) return 0;
     static messageCountdown[MAX_LENGTH];
-    format(messageCountdown, sizeof(messageCountdown), "La partida inicia en %d segundos", countdown);
+    format(messageCountdown, sizeof(messageCountdown), "The match starts in %d seconds", countdown);
     SendClientMessageToAll(0xFFFF00FF, messageCountdown);
     return 1;
+}
+
+giveRol(playerId, rol)
+{
+    playerRol[playerId] = rol;
+    SendClientMessage(playerId, 0xFFFFFFFF, rolMessage[rol]);
+}
+
+giveWeapons(playerId, rol)
+{
+    if (rol == ROL_TRAITOR) GivePlayerWeapon(playerId, 4, 1);
+    GivePlayerWeapon(playerId, 29, 400);
+    GivePlayerWeapon(playerId, 23, 400);
+    SetPlayerArmedWeapon(playerId, 0);
+}
+
+defineRoles()
+{
+    new traitorId = playerIdRandom();
+    for (new playerId = 0; playerId <= GetPlayerPoolSize(); playerId++)
+    {
+        if (!IsPlayerConnected(playerId)) continue;
+        new rol = (playerId == traitorId) ? ROL_TRAITOR : ROL_INOCENT;
+        giveRol(playerId, rol);
+        giveWeapons(playerId, rol);
+    }
+}
+
+playerIdRandom()
+{
+    new players[MAX_PLAYERS];
+    for (new playerId = 0; playerId <= GetPlayerPoolSize(); playerId++)
+    {
+        if (!IsPlayerConnected(playerId)) continue;
+        players[playerId] = playerId;
+    }
+    return players[random(activePlayers)];
+}
+
+startToGame()
+{
+    defineRoles();
 }
 
 forward startCountdown();
@@ -88,13 +106,8 @@ public startCountdown()
         startToGame();
         return 1;
     }
-    countdown = TIME_START;
+    countdown = TIME_START_SECOND;
     return 0;
-}
-
-startToGame()
-{
-    SendClientMessageToAll(0x00FF00FF, "Partida iniciada");
 }
 
 public OnGameModeInit()
@@ -102,14 +115,20 @@ public OnGameModeInit()
     timerCountdownId = SetTimer("startCountdown", SECOND, CICLE_INFINITY);
     SetGameModeText(GAMEMODE_NAME);
     AddPlayerClass(SKIN_DEFAULT_ID, SPAWN_X, SPAWN_Y, SPAWN_Z, 0.0, 0, 0, 0, 0, 0, 0);
-    SpawnBot();
     DisableInteriorEnterExits();
     return 1;
 }
 
 public OnPlayerConnect(playerid)
 {
-    SetupBot(playerid);
+    activePlayers++;
+    SpawnPlayer(playerid);
+    return 1;
+}
+
+public OnPlayerDisconnect(playerid, reason)
+{
+    activePlayers--;
     return 1;
 }
 
@@ -119,7 +138,7 @@ public OnPlayerSpawn(playerid)
     SetPlayerVirtualWorld(playerid, 0);
     SetPlayerPos(playerid, SPAWN_X, SPAWN_Y, SPAWN_Z);
     SetPlayerHealth(playerid, PLAYER_HEALTH);
-    PositionBot(playerid);
-    createNameLabel(playerid);
     return 1;
 }
+
+main() {}
