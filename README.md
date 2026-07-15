@@ -1,8 +1,8 @@
-# 🕵️ Impostor - SA:MP Gamemode
+# Impostor - SA:MP Gamemode
 
 Modo de juego desarrollado en **Pawn para GTA San Andreas Multiplayer (SA-MP)**, centrado en una dinámica de roles donde un jugador asume el papel de **traidor**, mientras el resto debe sobrevivir, investigar o descubrir al culpable.
 
-### ⚙️ Características
+### Características
 
 - Asignación de roles
 - Spawn automático de jugadores
@@ -10,13 +10,13 @@ Modo de juego desarrollado en **Pawn para GTA San Andreas Multiplayer (SA-MP)**,
 - Mensajes y anuncios
 - Preparado para futuras mejoras
 
-### 🔧 Tecnologías utilizadas
+### Tecnologías utilizadas
 
 - Pawn
 - SA-MP Server
 - Pawno Compiler
 
-### 📂 Instalación
+### Instalación
 
 1. Coloca `traitor.pwn` dentro de la carpeta `gamemodes`.
 2. Compílalo usando Pawno.
